@@ -46,9 +46,10 @@ GameObject:
   - component: {fileID: 114421021764413650}
   - component: {fileID: 114062073148669802}
   - component: {fileID: 114600917398554040}
+  - component: {fileID: 125593931}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,6 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 30
   controller: {fileID: 0}
+  animator: {fileID: 125593931}
 --- !u!114 &114600917398554040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +231,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1b149bb31bfe44988c8b9eaed3f671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 10
+  maxHealth: 3
+  currentHealth: 3
   healthBar: {fileID: 0}
   gameManager: {fileID: 0}
+--- !u!95 &125593931
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888215179190616}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b450b6762198fee40b7395ca63189f7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
