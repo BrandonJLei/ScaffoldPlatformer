@@ -122,9 +122,10 @@ public class CharacterController2D : MonoBehaviour
     void Flip()
     {
         m_FacingRight = !m_FacingRight;
-        Vector2 localScale = gameObject.transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
+        //Vector2 localScale = gameObject.transform.localScale;
+        //localScale.x *= -1;
+        //transform.localScale = localScale;
+        transform.Rotate(0f, 180f, 0f);
     }
 
     //-////////////////////////////////////////////////////
