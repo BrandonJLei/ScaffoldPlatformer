@@ -5,45 +5,54 @@ using UnityEngine;
 public class EnemyShooter : MonoBehaviour
 {
 
-  public var Target : Transform;    
-  public var Projectile : Transform;
-  
-  public var MaximumLookDistance : float = 30;
-  public var MaximumAttackDistance : float = 10;
-  public var MinimumDistanceFromPlayer : float = 2;
-  
-  public var rotationDamping : float = 0.5;
-  public var shotTime : float = 0;
-  
-function Update ()  
+    public float speed; 
+    public float stoppingDistance; 
+    public float retreatDistance;
 
-{
-  
-      var distance = Vector3.Distance(Target.position, transform.position);
-  
-      if(distance <= MaximumLookDistance) 
-	{
-          LookAtTarget ();
-  
-          if(distance <= MaximumAttackDistance && (Time.time - shotTime) > shotInterval)
-		{
-		    Shoot();
-		}
-      }   
-}
-  
-  
-function LookAtTarget () 
-{
-      var dir = Target.position - transform.position;
-      dir.y = 0;
-      var rotation = Quaternion.LookRotation(dir);
-      transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime *   rotationDamping);
-}
-  
-function Shoot()
-{
-    shotTime = Time.time; 
-    Instantiate(Projectile, transform.position + (Target.position - transform.position).normalized, Quaternion.LookRotation(Target.position - transform.position));
-} 
+    private float timeBtwShots; 
+    public float startTimeBtwShots;
+
+    public GameObject projectile;
+    private Transform target; 
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+	timeBtwShots = startTimeBtwShots; 
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Vector2.Distance(transform.position, target.position) > stoppingDistance) {
+	    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); 
+	}
+
+	else if(Vector2.Distance(transform.position, target.position) < stoppingDistance && Vector2.Distance(transform.position, target.position) > retreatDistance)  {
+	    transform.position = this.transform.position; 
+
+	}
+
+	else if(Vector2.Distance(transform.position, target.position) < retreatDistance) {
+	    transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);  
+	}
+
+
+	if (timeBtwShots <= 0) {
+	    Instantiate(projectile, transform.position, Quaternion.identity); 
+	    timeBtwShots = startTimeBtwShots;  
+
+
+	}
+
+	else {
+	    timeBtwShots -= Time.deltaTime; 
+	}
+
+
+
+    }
 }

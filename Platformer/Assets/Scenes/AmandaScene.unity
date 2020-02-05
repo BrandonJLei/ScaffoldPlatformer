@@ -130,12 +130,12 @@ PrefabInstance:
     - target: {fileID: 3200152969052602469, guid: f94298ebabf6d4b358eb5bef6f5232cb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.143505
+      value: 6.26
       objectReference: {fileID: 0}
     - target: {fileID: 3200152969052602469, guid: f94298ebabf6d4b358eb5bef6f5232cb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.635956
+      value: -2.32
       objectReference: {fileID: 0}
     - target: {fileID: 3200152969052602469, guid: f94298ebabf6d4b358eb5bef6f5232cb,
         type: 3}
@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 3200152969052602469, guid: f94298ebabf6d4b358eb5bef6f5232cb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3200152969052602469, guid: f94298ebabf6d4b358eb5bef6f5232cb,
         type: 3}
@@ -195,7 +195,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 873555555}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &873555557
+--- !u!61 &873555557
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873555556}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9375, y: 0.875}
+    newSize: {x: 0.9375, y: 0.875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9375, y: 0.875}
+  m_EdgeRadius: 0
+--- !u!114 &873555558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,8 +233,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc26f134a811404a8fe84467396a4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 873555559}
   bulletPrefab: {fileID: 4029264870372586133, guid: cca8f911cb256f44c8431aaceba3855e,
+    type: 3}
+--- !u!4 &873555559 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3200152969052602469, guid: f94298ebabf6d4b358eb5bef6f5232cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 873555555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &873555560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873555556}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb122e0dfa6b42b0b6e3636679bc711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  stoppingDistance: 3
+--- !u!114 &873555561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873555556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5957778888db4741b416623a7839be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  stoppingDistance: 2
+  retreatDistance: 2
+  startTimeBtwShots: 1
+  projectile: {fileID: 4868819957708141103, guid: 334ae2f21e50649a79d256b8c1e98e0b,
     type: 3}
 --- !u!1001 &1010092678
 PrefabInstance:
@@ -255,7 +319,7 @@ PrefabInstance:
     - target: {fileID: 8983107952979277637, guid: f6de5eeceab50b949bb9dc64dcf06bf1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8983107952979277637, guid: f6de5eeceab50b949bb9dc64dcf06bf1,
         type: 3}
