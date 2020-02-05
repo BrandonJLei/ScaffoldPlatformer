@@ -7,15 +7,14 @@ using UnityEngine;
 /// PlayeMovement handles the movement of the player by specifying player speed, reading user Input,
 /// and calling CharacterController2D to move the Player Object  
 ///
-public class PlayerMovement : MonoBehaviour
-{
-    [SerializeField] private float runSpeed = 0f;
+public class PlayerMovement : MonoBehaviour 
+{   
+    [SerializeField] private float runSpeed;
     float horizontalMove = 0f;
     bool jump = false;
     public CharacterController2D controller;
-    public Animator animator;
 
-    //-////////////////////////////////////////////////////
+     //-////////////////////////////////////////////////////
     ///
     void Start()
     {
@@ -29,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
