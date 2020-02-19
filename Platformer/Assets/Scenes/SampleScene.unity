@@ -1996,6 +1996,7 @@ MonoBehaviour:
   moveSpeed: 1
   followMoveSpeed: 2
   range: 4
+  verticalRange: 0
   patrolLocations:
   - {fileID: 217129981}
   - {fileID: 1629137986}
