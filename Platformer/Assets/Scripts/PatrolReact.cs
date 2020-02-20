@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PatrolReact : MonoBehaviour
@@ -12,6 +13,13 @@ public class PatrolReact : MonoBehaviour
     public float moveSpeed; //Patrol speed
     public float followMoveSpeed; //Speed when following player
     public float range; //Minimum distance for enemy to react to player
+    public float verticalRange; //How far up and down the enemy moves
+    public float verticalChange; //How much the y value of the GameObject will change each frame
+    //verticalChange is best between 0.001f and 0.01f
+
+    private bool movingUp; //Whether or not the enemy is moving up
+    private float verticalHigh; //Highest y value for the enemy to reach
+    private float verticalLow; //Lowest y value for the enemy to reach
     private Transform player; //Player to follow
     
 
@@ -25,7 +33,10 @@ public class PatrolReact : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-}
+        verticalHigh = patrollingGameObject.transform.position.y + verticalRange;
+        verticalLow = patrollingGameObject.transform.position.y - verticalRange;
+        movingUp = true;
+    }
     //-////////////////////////////////////////////////////
     ///
     /// Update is called once per frame
@@ -54,13 +65,14 @@ public class PatrolReact : MonoBehaviour
             Flip(patrolLocations[nextPatrolLocation]);
 
             patrollingGameObject.transform.position = Vector2.MoveTowards(patrollingGameObject.transform.position,
-            patrolLocations[nextPatrolLocation].position, moveSpeed * Time.deltaTime);
+            new Vector2(patrolLocations[nextPatrolLocation].position.x, patrollingGameObject.transform.position.y), moveSpeed * Time.deltaTime);
 
             if (Vector2.Distance(patrollingGameObject.transform.position, patrolLocations[nextPatrolLocation].position) <= 2)
                 {
                 nextPatrolLocation = (nextPatrolLocation + 1) % patrolLocations.Count; //Prevents IndexOutofBound by looping back through list
                 }
         }
+        Vertical();
     }
 
     //-////////////////////////////////////////////////////
@@ -75,5 +87,22 @@ public class PatrolReact : MonoBehaviour
         else
             localScale.x = -1;
         patrollingGameObject.transform.localScale = localScale;
+    }
+
+    private void Vertical()
+    {
+        if (movingUp && patrollingGameObject.transform.position.y >= verticalHigh)
+        {
+            movingUp = false;
+            verticalChange = -verticalChange;
+        }
+        else if (!movingUp && patrollingGameObject.transform.position.y <= verticalLow)
+        {
+            movingUp = true;
+            verticalChange = -verticalChange;
+        }
+        Vector3 newPos = patrollingGameObject.transform.position;
+        newPos.y += verticalChange;
+        patrollingGameObject.transform.position = newPos;
     }
 }

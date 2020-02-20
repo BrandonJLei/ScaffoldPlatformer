@@ -11,6 +11,13 @@ using UnityEngine;
 /// CharacterController2D is often getting called by other scripts that want to gather/modify information from the player(Ex: PlayerMovement) 
 public class CharacterController2D : MonoBehaviour 
 {
+
+    public GameObject basicBullet, fireBullet, iceBullet;
+    public int whichWeapon = 1;
+
+    public Transform firePoint;
+    //public GameObject bulletPrefab;
+
     [SerializeField] 
     private float m_JumpForce = 800f;
     [SerializeField]
@@ -56,9 +63,24 @@ public class CharacterController2D : MonoBehaviour
 
     //-////////////////////////////////////////////////////
     ///
-    private void Update()
+    public void Update()
     {
-      
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            whichWeapon = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            whichWeapon = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            whichWeapon = 3;
+        }
     }
 
     //-////////////////////////////////////////////////////
@@ -149,6 +171,25 @@ public class CharacterController2D : MonoBehaviour
     public void SetPlayerImmune(bool isImmune)
     {
         m_Immune = isImmune;
+    }
+
+    void Shoot()
+    {
+        if(whichWeapon == 1)
+            Instantiate(basicBullet, firePoint.position, firePoint.rotation);
+        else if(whichWeapon == 2)
+            Instantiate(fireBullet, firePoint.position, firePoint.rotation);
+        else
+            Instantiate(iceBullet, firePoint.position, firePoint.rotation);
+    }
+    public void changeWeapon()
+    {
+        if (whichWeapon == 1)
+            whichWeapon = 2;
+        else if (whichWeapon == 2)
+            whichWeapon = 3;
+        else
+            whichWeapon = 1;
     }
 
 }
