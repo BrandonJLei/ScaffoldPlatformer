@@ -345,6 +345,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerThatCanShoot
       objectReference: {fileID: 0}
+    - target: {fileID: 5054206975483254534, guid: 49346dec4839049408fa8c054e06c52c,
+        type: 3}
+      propertyPath: fireBullet
+      value: 
+      objectReference: {fileID: 8819332660425322341, guid: 64225302f17db1d4ca06b2934653ac9e,
+        type: 3}
     - target: {fileID: 5054206975483254539, guid: 49346dec4839049408fa8c054e06c52c,
         type: 3}
       propertyPath: m_LocalPosition.x
