@@ -62,10 +62,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8983107952979277658, guid: f6de5eeceab50b949bb9dc64dcf06bf1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8983107952979277659, guid: f6de5eeceab50b949bb9dc64dcf06bf1,
         type: 3}
       propertyPath: m_Name
-      value: PlayerThatCanShoot
+      value: DamageablePlayerThatCanShoot
       objectReference: {fileID: 0}
+    - target: {fileID: 8983107952979277662, guid: f6de5eeceab50b949bb9dc64dcf06bf1,
+        type: 3}
+      propertyPath: basicBullet
+      value: 
+      objectReference: {fileID: 4029264870372586133, guid: cca8f911cb256f44c8431aaceba3855e,
+        type: 3}
+    - target: {fileID: 8983107952979277662, guid: f6de5eeceab50b949bb9dc64dcf06bf1,
+        type: 3}
+      propertyPath: fireBullet
+      value: 
+      objectReference: {fileID: 1615275191259482255, guid: ab7c3a06689a23d4aa7ee7cde60752be,
+        type: 3}
+    - target: {fileID: 8983107952979277662, guid: f6de5eeceab50b949bb9dc64dcf06bf1,
+        type: 3}
+      propertyPath: iceBullet
+      value: 
+      objectReference: {fileID: 1199165902589143882, guid: da1ed7acff4f4534294e69afb9ce6fce,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6de5eeceab50b949bb9dc64dcf06bf1, type: 3}

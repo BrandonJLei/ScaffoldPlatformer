@@ -59,26 +59,28 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void DamageOverTime(int damage, int damageTime)
+    public void DamageOverTime(int damage, int damageDuration)
     {
-        if(onFire == false)
+        if(onFire == false && slowed == false)
         {
-            StartCoroutine(DamageOverTimeCoroutine(damage, damageTime));
+            onFire = true;
+            StartCoroutine(DamageOverTimeCoroutine(damage, damageDuration));
         }
     }
 
-    public void slow(int slowAmount, int slowTime)
+    public void slow(int slowAmount, int slowDuration)
     {
-        if (slowed == false)
+        if (slowed == false && onFire == false)
         {
-            StartCoroutine(SlowCoroutine(slowAmount, slowTime));
+            slowed = true;
+            StartCoroutine(SlowCoroutine(slowAmount, slowDuration));
         }
             
     }
 
     IEnumerator DamageOverTimeCoroutine(int damageAmount, int duration)
     {
-        onFire = true;
+        
         int amountDamaged = 0;
         int damagePerLoop = damageAmount / duration;
         while(amountDamaged < damageAmount)
@@ -96,7 +98,6 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator SlowCoroutine(int slowAmount, int slowTime)
     {
         Color frozenColor = new Color(0.8f, 1.0f, 1.0f, .4f);
-        slowed = true;
         if (moveSpeed > slowAmount)
             moveSpeed -= slowAmount;
         int timeSlowed = 0;

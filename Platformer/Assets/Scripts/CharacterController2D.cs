@@ -12,10 +12,11 @@ using UnityEngine;
 public class CharacterController2D : MonoBehaviour
 {
 
-    public GameObject basicBullet, fireBullet, iceBullet;
+    public GameObject basicBullet, fireBullet, iceBullet, upBasicBullet, upFireBullet, upIceBullet;
     public int whichWeapon = 1;
-
     public Transform firePoint;
+    public Transform UpFirePoint;
+
     //public GameObject bulletPrefab;
 
     [SerializeField]
@@ -71,6 +72,10 @@ public class CharacterController2D : MonoBehaviour
         {
             Shoot();
         }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            ShootUp();
+        }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             whichWeapon = 1;
@@ -83,6 +88,7 @@ public class CharacterController2D : MonoBehaviour
         {
             whichWeapon = 3;
         }
+
     }
 
     //-////////////////////////////////////////////////////
@@ -186,6 +192,15 @@ public class CharacterController2D : MonoBehaviour
             Instantiate(fireBullet, firePoint.position, firePoint.rotation);
         else
             Instantiate(iceBullet, firePoint.position, firePoint.rotation);
+    }
+    void ShootUp()
+    {
+        if (whichWeapon == 1)
+            Instantiate(upBasicBullet, UpFirePoint.position, UpFirePoint.rotation);
+        else if (whichWeapon == 2)
+            Instantiate(upFireBullet, UpFirePoint.position, UpFirePoint.rotation);
+        else
+            Instantiate(upIceBullet, UpFirePoint.position, UpFirePoint.rotation);
     }
     public void changeWeapon()
     {
