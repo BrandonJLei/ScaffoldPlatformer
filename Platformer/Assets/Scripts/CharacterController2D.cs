@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
- //-////////////////////////////////////////////////////
+//-////////////////////////////////////////////////////
 ///
 /// CharacterController2D handles the core logic of the player's:
 /// -States such as: grounded, immune, air jumps lefts, and facing right.
 /// -Properties such as: how many air jumps, jump power, gravity force, movement, and air control
-/// 
-/// CharacterController2D is often getting called by other scripts that want to gather/modify information from the player(Ex: PlayerMovement) 
-public class CharacterController2D : MonoBehaviour 
+///
+/// CharacterController2D is often getting called by other scripts that want to gather/modify information from the player(Ex: PlayerMovement)
+public class CharacterController2D : MonoBehaviour
 {
 
     public GameObject basicBullet, fireBullet, iceBullet;
@@ -18,12 +18,14 @@ public class CharacterController2D : MonoBehaviour
     public Transform firePoint;
     //public GameObject bulletPrefab;
 
-    [SerializeField] 
+    [SerializeField]
     private float m_JumpForce = 800f;
     [SerializeField]
     private int m_AirJumps = 0;
     [SerializeField]
     private float m_FallGravity = 4f;
+    [SerializeField, Range(0, 1.0f)]
+    private float m_SlowFall = 0.5f;
     [SerializeField, Range(0, .3f)]
     private float m_MovementSmoothing = .05f;
     [SerializeField]
@@ -69,7 +71,7 @@ public class CharacterController2D : MonoBehaviour
         {
             Shoot();
         }
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             whichWeapon = 1;
         }
@@ -98,10 +100,10 @@ public class CharacterController2D : MonoBehaviour
 
             if (move > 0 && !m_FacingRight)
                 Flip();
-            
+
             else if (move < 0 && m_FacingRight)
                 Flip();
-            
+
         }
 
         JumpGravity(jump);
@@ -129,12 +131,15 @@ public class CharacterController2D : MonoBehaviour
     {
         if (jump && m_AirJumpsLeft >= 1)
             m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 0); //resets gravity if player jumps in the air so we the momentum doesnt kill the jump force
- 
+
         if (m_RigidBody2D.velocity.y < 0) //we are falling, therefore increase gravity down
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
-        
-        else if (m_RigidBody2D.velocity.y > 0  && !Input.GetButton("Jump"))//Tab Jump
-            m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime; 
+
+        else if (m_RigidBody2D.velocity.y > 0 && !Input.GetButton("Jump"))//Tab Jump
+            m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
+
+        if (m_RigidBody2D.velocity.y < 0 && Input.GetButton("Jump"))
+            m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, m_RigidBody2D.velocity.y * m_SlowFall);
     }
 
     //-////////////////////////////////////////////////////
@@ -175,9 +180,9 @@ public class CharacterController2D : MonoBehaviour
 
     void Shoot()
     {
-        if(whichWeapon == 1)
+        if (whichWeapon == 1)
             Instantiate(basicBullet, firePoint.position, firePoint.rotation);
-        else if(whichWeapon == 2)
+        else if (whichWeapon == 2)
             Instantiate(fireBullet, firePoint.position, firePoint.rotation);
         else
             Instantiate(iceBullet, firePoint.position, firePoint.rotation);
