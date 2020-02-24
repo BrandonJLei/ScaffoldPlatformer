@@ -9,20 +9,32 @@ public class FireBullet : MonoBehaviour
     public int damageDealtOverTime = 10;
     public int damageTime = 5;
     public Rigidbody2D rb;
+
+    private Transform player;
+    private Vector3 target;
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        target = (player.position - transform.position).normalized;
+    }
+
+    void Update()
+    {
+        transform.position += target * speed * Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
-        if (enemy != null)
+        if (hitInfo.CompareTag("Player"))
         {
-            enemy.TakeDamage(damage);
-            enemy.DamageOverTime(damageDealtOverTime, damageTime);
+            EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                enemy.DamageOverTime(damageDealtOverTime, damageTime);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
