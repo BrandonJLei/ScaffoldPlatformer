@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  moveSpeed: 0
+  patrolLocations: []
+  patrollingGameObject: {fileID: 0}
 --- !u!1001 &3204726259970824707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,6 +26,10 @@ PrefabInstance:
     - target: {fileID: 1560732185758450, guid: e5a255ed8cce0e548b8f77659399cf4e, type: 3}
       propertyPath: m_Name
       value: SnailEnemyShooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560732185758450, guid: e5a255ed8cce0e548b8f77659399cf4e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4577981022837350, guid: e5a255ed8cce0e548b8f77659399cf4e, type: 3}
       propertyPath: m_LocalPosition.x

@@ -60,6 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  moveSpeed: 0
+  patrolLocations: []
+  patrollingGameObject: {fileID: 0}
 --- !u!1001 &232268886367257565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,6 +73,10 @@ PrefabInstance:
     - target: {fileID: 1713705236498936, guid: dda7916924b759248bf4647e57f00af7, type: 3}
       propertyPath: m_Name
       value: SnowmanCharge
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713705236498936, guid: dda7916924b759248bf4647e57f00af7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4547596144822794, guid: dda7916924b759248bf4647e57f00af7, type: 3}
       propertyPath: m_LocalPosition.x

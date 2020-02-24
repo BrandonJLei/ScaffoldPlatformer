@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwShots: 1
-  projectile: {fileID: 4868819957708141103, guid: 334ae2f21e50649a79d256b8c1e98e0b,
+  projectile: {fileID: 1615275191259482255, guid: ab7c3a06689a23d4aa7ee7cde60752be,
     type: 3}
 --- !u!1001 &6154152804730448587
 PrefabInstance:
@@ -90,13 +90,19 @@ PrefabInstance:
     - target: {fileID: 5592550054477895146, guid: 247c06d5da0342343be066227de94672,
         type: 3}
       propertyPath: m_Name
-      value: SnowmanShooter
+      value: FireEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5592550054477895146, guid: 247c06d5da0342343be066227de94672,
         type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5722798357064094538, guid: 247c06d5da0342343be066227de94672,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 16fc95d168ff68349b1a3642b98e122a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 247c06d5da0342343be066227de94672, type: 3}
 --- !u!1 &1800116015104900897 stripped
