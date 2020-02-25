@@ -15,6 +15,25 @@ MonoBehaviour:
   startTimeBtwShots: 1
   projectile: {fileID: 1615275191259482255, guid: ab7c3a06689a23d4aa7ee7cde60752be,
     type: 3}
+--- !u!114 &6321326225989233559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800116015104900897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd66e14436167c44a1248724fb5188a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  followMoveSpeed: 2
+  range: 4
+  verticalRange: 1
+  verticalChange: 0.005
+  patrolLocations: []
+  patrollingGameObject: {fileID: 1800116015104900897}
 --- !u!1001 &6154152804730448587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,6 +106,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5591555245838039039, guid: 247c06d5da0342343be066227de94672,
+        type: 3}
+      propertyPath: patrollingGameObject
+      value: 
+      objectReference: {fileID: 1800116015104900897}
     - target: {fileID: 5592550054477895146, guid: 247c06d5da0342343be066227de94672,
         type: 3}
       propertyPath: m_Name

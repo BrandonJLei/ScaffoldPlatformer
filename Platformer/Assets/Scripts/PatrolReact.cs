@@ -21,7 +21,7 @@ public class PatrolReact : MonoBehaviour
     private float verticalHigh; //Highest y value for the enemy to reach
     private float verticalLow; //Lowest y value for the enemy to reach
     private Transform player; //Player to follow
-    
+
 
     [Header("Agent's patrol areas")]
     public List<Transform> patrolLocations; //List of all the Transform locations the gameObject will patrol
@@ -30,12 +30,15 @@ public class PatrolReact : MonoBehaviour
     public GameObject patrollingGameObject; //Unity GameObject that patrols
     private int nextPatrolLocation; //Keeps track of the patrol location
 
+    private SpriteRenderer mySpriteRenderer;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         verticalHigh = patrollingGameObject.transform.position.y + verticalRange;
         verticalLow = patrollingGameObject.transform.position.y - verticalRange;
         movingUp = true;
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
     //-////////////////////////////////////////////////////
     ///
@@ -81,12 +84,10 @@ public class PatrolReact : MonoBehaviour
     ///
     private void Flip(Transform nextLocation)
     {
-        Vector2 localScale = patrollingGameObject.transform.localScale;
         if (patrollingGameObject.transform.position.x - nextLocation.position.x > 0)
-            localScale.x = 1;
+            mySpriteRenderer.flipX = false;
         else
-            localScale.x = -1;
-        patrollingGameObject.transform.localScale = localScale;
+            mySpriteRenderer.flipX = true;
     }
 
     private void Vertical()
