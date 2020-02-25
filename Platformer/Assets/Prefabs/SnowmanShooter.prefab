@@ -87,6 +87,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5591555245838039038, guid: 247c06d5da0342343be066227de94672,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591555245838039039, guid: 247c06d5da0342343be066227de94672,
+        type: 3}
+      propertyPath: patrollingGameObject
+      value: 
+      objectReference: {fileID: 3205704179874582769, guid: f94298ebabf6d4b358eb5bef6f5232cb,
+        type: 3}
     - target: {fileID: 5592550054477895146, guid: 247c06d5da0342343be066227de94672,
         type: 3}
       propertyPath: m_Name
