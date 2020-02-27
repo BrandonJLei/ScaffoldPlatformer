@@ -28,11 +28,11 @@ public class EnemyProjectile : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (other.CompareTag("Player"))
+        if (hitInfo.CompareTag("Player"))
         {
-            PlayerHealth player = other.GetComponent<PlayerHealth>();
+            PlayerHealthCollision player = hitInfo.GetComponent<PlayerHealthCollision>();
             if (player != null)
             {
                 player.TakeDamage(damage);

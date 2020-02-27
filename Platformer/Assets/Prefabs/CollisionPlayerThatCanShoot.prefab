@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e92f086285c94cb998e342f3c645fe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
-  currentHealth: 3
-  healthBar: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 100
   gameManager: {fileID: 0}
+  characterController2D: {fileID: 0}
 --- !u!1001 &1894911371385633222
 PrefabInstance:
   m_ObjectHideFlags: 0
