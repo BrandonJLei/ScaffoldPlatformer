@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   damage: 2
-  damageDealtOverTime: 10
+  damageDealtOverTime: 1
   damageTime: 5
   rb: {fileID: 0}
 --- !u!1001 &3654003276627255363
