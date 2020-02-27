@@ -38,9 +38,10 @@ public class EnemyProjectile : MonoBehaviour
                 player.TakeDamage(damage);
                 //player.DamageOverTime(damageDealtOverTime, damageTime);
             }
-            Destroy(gameObject);
+            
          }
-    
+        Destroy(gameObject);
+
     }
 
     void DestroyProjectile()
