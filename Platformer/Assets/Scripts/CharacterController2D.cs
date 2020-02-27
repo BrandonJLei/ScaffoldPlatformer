@@ -7,26 +7,36 @@ using UnityEngine;
 /// CharacterController2D handles the core logic of the player's:
 /// -States such as: grounded, immune, air jumps lefts, and facing right.
 /// -Properties such as: how many air jumps, jump power, gravity force, movement, and air control
-/// 
-/// CharacterController2D is often getting called by other scripts that want to gather/modify information from the player(Ex: PlayerMovement) 
+///
+/// CharacterController2D is often getting called by other scripts that want to gather/modify information from the player(Ex: PlayerMovement)
 public class CharacterController2D : MonoBehaviour
 {
+
+    public GameObject basicBullet, fireBullet, iceBullet, upBasicBullet, upFireBullet, upIceBullet;
+    public int whichWeapon = 1;
+    public Transform firePoint;
+    public Transform UpFirePoint;
+
+    //public GameObject bulletPrefab;
+
     [SerializeField]
-    private float m_JumpForce = 600f;
+    private float m_JumpForce = 800f;
     [SerializeField]
     private int m_AirJumps = 0;
     [SerializeField]
-    private float m_FallGravity = 9f;
+    private float m_FallGravity = 4f;
+    [SerializeField, Range(0, 1.0f)]
+    private float m_SlowFall = 0.5f;
     [SerializeField, Range(0, .3f)]
     private float m_MovementSmoothing = .05f;
     [SerializeField]
     private LayerMask m_GroundLayer;
     [SerializeField]
-    private Transform m_GroundCheck = null;
+    private Transform m_GroundCheck;
     [SerializeField]
     private bool m_AirControl = false;
     [SerializeField]
-    private float m_JumpForceOnEnemies = 5;
+    private float m_JumpForceOnEnemies = 20;
     private bool m_Grounded;
     private bool m_FacingRight = true;
     private bool m_Damaged;
@@ -56,8 +66,28 @@ public class CharacterController2D : MonoBehaviour
 
     //-////////////////////////////////////////////////////
     ///
-    private void Update()
+    public void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            ShootUp();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            whichWeapon = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            whichWeapon = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            whichWeapon = 3;
+        }
 
     }
 
@@ -113,6 +143,9 @@ public class CharacterController2D : MonoBehaviour
 
         else if (m_RigidBody2D.velocity.y > 0 && !Input.GetButton("Jump"))//Tab Jump
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
+
+        if (m_RigidBody2D.velocity.y < 0 && Input.GetButton("Jump"))
+            m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, m_RigidBody2D.velocity.y * m_SlowFall);
     }
 
     //-////////////////////////////////////////////////////
@@ -122,9 +155,6 @@ public class CharacterController2D : MonoBehaviour
     void Flip()
     {
         m_FacingRight = !m_FacingRight;
-        //Vector2 localScale = gameObject.transform.localScale;
-        //localScale.x *= -1;
-        //transform.localScale = localScale;
         transform.Rotate(0f, 180f, 0f);
     }
 
@@ -152,6 +182,34 @@ public class CharacterController2D : MonoBehaviour
     public void SetPlayerImmune(bool isImmune)
     {
         m_Immune = isImmune;
+    }
+
+    void Shoot()
+    {
+        if (whichWeapon == 1)
+            Instantiate(basicBullet, firePoint.position, firePoint.rotation);
+        else if (whichWeapon == 2)
+            Instantiate(fireBullet, firePoint.position, firePoint.rotation);
+        else
+            Instantiate(iceBullet, firePoint.position, firePoint.rotation);
+    }
+    void ShootUp()
+    {
+        if (whichWeapon == 1)
+            Instantiate(upBasicBullet, UpFirePoint.position, UpFirePoint.rotation);
+        else if (whichWeapon == 2)
+            Instantiate(upFireBullet, UpFirePoint.position, UpFirePoint.rotation);
+        else
+            Instantiate(upIceBullet, UpFirePoint.position, UpFirePoint.rotation);
+    }
+    public void changeWeapon()
+    {
+        if (whichWeapon == 1)
+            whichWeapon = 2;
+        else if (whichWeapon == 2)
+            whichWeapon = 3;
+        else
+            whichWeapon = 1;
     }
 
 }
