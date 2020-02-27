@@ -10,45 +10,13 @@ public class EnemyHealth : MonoBehaviour
     public float moveSpeed; 
     private bool onFire = false;
     private bool slowed = false;
-    //public GameObject deathEffect;
-    [Header("Agent's patrol areas")]
-    public List<Transform> patrolLocations; //List of all the Transform locations the gameObject will patrol
 
-    [Space, Header("Agent")]
-    public GameObject patrollingGameObject; //Unity GameObject that patrols
-    private int nextPatrolLocation; //Keeps track of the patrol location
 
     void Start()
     {
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
-    {
-        PatrolArea();
-    }
-
-    private void PatrolArea()
-    {
-        Flip();
-        patrollingGameObject.transform.position = Vector2.MoveTowards(patrollingGameObject.transform.position,
-            patrolLocations[nextPatrolLocation].position, moveSpeed * Time.deltaTime);
-
-        if (Vector2.Distance(patrollingGameObject.transform.position, patrolLocations[nextPatrolLocation].position) <= 2)
-        {
-            nextPatrolLocation = (nextPatrolLocation + 1) % patrolLocations.Count; //Prevents IndexOutofBound by looping back through list
-        }
-    }
-
-    private void Flip()
-    {
-        Vector2 localScale = patrollingGameObject.transform.localScale;
-        if (patrollingGameObject.transform.position.x - patrolLocations[nextPatrolLocation].position.x > 0)
-            localScale.x = 1;
-        else
-            localScale.x = -1;
-        patrollingGameObject.transform.localScale = localScale;
-    }
 
     public void TakeDamage(int damage)
     {
