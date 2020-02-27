@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireBullet : MonoBehaviour
 {
     public float speed = 20f;
-    public int damage = 20;
+    public int damage = 10;
     public int damageDealtOverTime = 10;
     public int damageTime = 5;
     public Rigidbody2D rb;

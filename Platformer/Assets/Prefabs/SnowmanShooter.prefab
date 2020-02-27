@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwShots: 1
-  projectile: {fileID: 4868819957708141103, guid: 334ae2f21e50649a79d256b8c1e98e0b,
+  projectile: {fileID: 2656908983381453004, guid: fc847c82b10ce4c3b8d56117d3d3f4de,
     type: 3}
 --- !u!1001 &6154152804730448587
 PrefabInstance:
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 5560432513992003496, guid: 247c06d5da0342343be066227de94672,
         type: 3}
       propertyPath: m_BodyType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5560432513992003496, guid: 247c06d5da0342343be066227de94672,
         type: 3}

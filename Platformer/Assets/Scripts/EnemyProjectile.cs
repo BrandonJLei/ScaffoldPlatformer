@@ -5,39 +5,47 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
 
-    public float speed;
+    public float speed = 20f;
+    public int damage = 20;
+    public int damageDealtOverTime = 10;
+    public int damageTime = 5;
+    public Rigidbody2D rb;
 
     private Transform player;
-    private Vector2 target;
+    private Vector3 target;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(player.position.x, player.position.y);
+        target = (player.position - transform.position).normalized;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        transform.position += target * speed * Time.deltaTime;
 
-        if (transform.position.x == target.x && transform.position.y == target.y)
-        {
-            DestroyProjectile();
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            DestroyProjectile();
-        }
+            PlayerHealth player = other.GetComponent<PlayerHealth>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+                //player.DamageOverTime(damageDealtOverTime, damageTime);
+            }
+            Destroy(gameObject);
+         }
+    
     }
 
     void DestroyProjectile()
     {
         Destroy(gameObject);
     }
+
 }
