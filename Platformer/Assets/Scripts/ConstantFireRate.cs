@@ -8,6 +8,7 @@ public class ConstantFireRate : MonoBehaviour
     private float timeBtwShots; 
     public float startTimeBtwShots;
     public GameObject projectile;
+	public Transform enemyFirePoint;
 
 	void Start()
 	{
@@ -19,7 +20,7 @@ public class ConstantFireRate : MonoBehaviour
 	{
 
 	if (timeBtwShots <= 0) {
-	    Instantiate(projectile, transform.position, Quaternion.identity); 
+	    Instantiate(projectile, enemyFirePoint.position, Quaternion.identity); 
 	    timeBtwShots = startTimeBtwShots;  
 
 
