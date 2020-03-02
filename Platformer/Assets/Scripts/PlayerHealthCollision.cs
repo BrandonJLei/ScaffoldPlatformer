@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI; //Needed to create Image instances
 
 //-////////////////////////////////////////////////////
@@ -44,7 +45,8 @@ public class PlayerHealthCollision : MonoBehaviour
             if(currentHealth <= 0)      //If health goes to 0 or below, call GameOver in GameManager
             {
                 //gameManager.GameOver();
-		Destroy(gameObject);
+                SceneManager.LoadScene("DeathScene");
+                Destroy(gameObject);
             }
         }
 
