@@ -1,24 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-Using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class portal : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void OnTriggerEnter2D(collider2D other)
+{   
+    public string levelName;
+
+    public void OnTriggerEnter2D(Collider2D collision)
+
     {
-	if (other.CompareTag("Player"))
+	    if(collision.tag == "Player")
 		{
 			// put level name where one is
-			SceneManager.LoadScrene(1) 
+			UnityEngine.SceneManagement.SceneManager.LoadScene(levelName);
 		}	    
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
