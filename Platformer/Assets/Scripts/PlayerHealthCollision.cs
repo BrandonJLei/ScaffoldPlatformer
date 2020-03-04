@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI; //Needed to create Image instances
 
 //-////////////////////////////////////////////////////
@@ -15,7 +16,7 @@ public class PlayerHealthCollision : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
-    //public Image healthBar; //UI Bar
+    public Image healthBar; //UI Bar
     public GameManager gameManager;
     private SpriteRenderer playerSprite;
     public CharacterController2D characterController2D;
@@ -24,7 +25,7 @@ public class PlayerHealthCollision : MonoBehaviour
     ///
     void Start () {
         currentHealth = maxHealth; //At start of scene, player gets max health
-        //healthBar.fillAmount = currentHealth;
+        healthBar.fillAmount = currentHealth;
         playerSprite = GetComponent<SpriteRenderer>();
         characterController2D = GetComponent<CharacterController2D>();
     }
@@ -40,11 +41,12 @@ public class PlayerHealthCollision : MonoBehaviour
 
             currentHealth -= damage;
             float health = currentHealth / maxHealth;
-            //healthBar.fillAmount = health;
+            healthBar.fillAmount = health;
             if(currentHealth <= 0)      //If health goes to 0 or below, call GameOver in GameManager
             {
                 //gameManager.GameOver();
-		Destroy(gameObject);
+                SceneManager.LoadScene("DeathScene");
+                Destroy(gameObject);
             }
         }
 
@@ -60,8 +62,8 @@ public class PlayerHealthCollision : MonoBehaviour
         if (currentHealth > maxHealth) //If health goes above max health then cap it at max health
             currentHealth = maxHealth;
 
-        //float health = currentHealth / maxHealth;
-        //healthBar.fillAmount = health;
+        float health = currentHealth / maxHealth;
+        healthBar.fillAmount = health;
     }
 
 

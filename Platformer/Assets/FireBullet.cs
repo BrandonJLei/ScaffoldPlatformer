@@ -28,13 +28,12 @@ public class FireBullet : MonoBehaviour
     {
         if (hitInfo.CompareTag("Player"))
         {
-            EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
-            if (enemy != null)
+            PlayerHealthCollision player = hitInfo.GetComponent<PlayerHealthCollision>();
+            if (player != null)
             {
-                enemy.TakeDamage(damage);
-                enemy.DamageOverTime(damageDealtOverTime, damageTime);
-            }
-            Destroy(gameObject);
+                player.TakeDamage(damage);
+            } 
         }
+        Destroy(gameObject);
     }
 }
