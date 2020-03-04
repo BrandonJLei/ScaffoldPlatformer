@@ -23,4 +23,9 @@ public class MainMenu : MonoBehaviour
         Application.LoadLevel("ControlScene");
 
     }
+
+    public void Menu()
+    {
+        Application.LoadLevel("MenuScene");
+    }
 }
