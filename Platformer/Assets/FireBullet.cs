@@ -32,8 +32,9 @@ public class FireBullet : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(damage);
-            } 
+            }
         }
         Destroy(gameObject);
+
     }
 }

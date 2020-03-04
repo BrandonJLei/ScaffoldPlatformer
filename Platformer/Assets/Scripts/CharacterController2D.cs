@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //-////////////////////////////////////////////////////
 ///
@@ -16,7 +17,11 @@ public class CharacterController2D : MonoBehaviour
     public int whichWeapon = 1;
     public Transform firePoint;
     public Transform UpFirePoint;
-
+    public string fireWeaponScene;
+    public string iceWeaponScene;
+    public bool hasFire = false;
+    public bool hasIce = false;
+    SpriteRenderer m_SpriteRenderer;
     //public GameObject bulletPrefab;
 
     [SerializeField]
@@ -47,6 +52,21 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
     //private Animator animator; //If using animations
 
+
+    void Start()
+    {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == fireWeaponScene)
+        {
+            hasFire = true;
+        }
+        if(sceneName == iceWeaponScene)
+        {
+            hasIce = true;
+        }
+    }
     //-////////////////////////////////////////////////////
     ///
     void Awake()
@@ -78,14 +98,17 @@ public class CharacterController2D : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            m_SpriteRenderer.color = Color.white;
             whichWeapon = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && hasFire)
         {
+            m_SpriteRenderer.color = Color.red;
             whichWeapon = 2;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && hasIce)
         {
+            m_SpriteRenderer.color = Color.blue;
             whichWeapon = 3;
         }
 

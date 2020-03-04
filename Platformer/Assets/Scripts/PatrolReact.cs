@@ -22,6 +22,8 @@ public class PatrolReact : MonoBehaviour
     private float verticalLow; //Lowest y value for the enemy to reach
     private Transform player; //Player to follow
 
+    SpriteRenderer m_SpriteRenderer;
+    private bool slowed = false;
 
     [Header("Agent's patrol areas")]
     public List<Transform> patrolLocations; //List of all the Transform locations the gameObject will patrol
@@ -34,6 +36,7 @@ public class PatrolReact : MonoBehaviour
 
     void Start()
     {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         verticalHigh = patrollingGameObject.transform.position.y + verticalRange;
         verticalLow = patrollingGameObject.transform.position.y - verticalRange;
@@ -105,5 +108,38 @@ public class PatrolReact : MonoBehaviour
         Vector3 newPos = patrollingGameObject.transform.position;
         newPos.y += verticalChange;
         patrollingGameObject.transform.position = newPos;
+    }
+
+    public void slow(int slowAmount, int slowDuration)
+    {
+        if (slowed == false)
+        {
+            slowed = true;
+            StartCoroutine(SlowCoroutine(slowAmount, slowDuration));
+        }
+
+    }
+
+
+    IEnumerator SlowCoroutine(int slowAmount, int slowTime)
+    {
+        Color frozenColor = new Color(0.8f, 1.0f, 1.0f, .4f);
+        if (moveSpeed > slowAmount)
+        {
+            moveSpeed -= slowAmount;
+            followMoveSpeed -=slowAmount;
+        }
+            
+        int timeSlowed = 0;
+        while (timeSlowed < slowTime)
+        {
+            m_SpriteRenderer.color = frozenColor;
+            timeSlowed += 1;
+            yield return new WaitForSeconds(.5f);
+            m_SpriteRenderer.color = Color.white;
+            yield return new WaitForSeconds(.5f);
+        }
+        moveSpeed += slowAmount;
+        slowed = false;
     }
 }
