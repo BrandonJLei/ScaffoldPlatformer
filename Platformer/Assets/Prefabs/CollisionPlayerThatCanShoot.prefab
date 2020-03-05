@@ -210,6 +210,10 @@ MonoBehaviour:
   whichWeapon: 1
   firePoint: {fileID: 1532943119821651532}
   UpFirePoint: {fileID: 1532943120610204968}
+  fireWeaponScene: 
+  iceWeaponScene: 
+  hasFire: 0
+  hasIce: 0
   m_JumpForce: 600
   m_AirJumps: 1
   m_FallGravity: 9
@@ -235,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 30
-  controller: {fileID: 0}
+  controller: {fileID: 1532943119428395280}
 --- !u!95 &1532943119428395282
 Animator:
   serializedVersion: 3
@@ -269,8 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  healthBar: {fileID: 0}
   gameManager: {fileID: 0}
-  characterController2D: {fileID: 0}
+  characterController2D: {fileID: 1532943119428395280}
 --- !u!1 &1532943119821651535
 GameObject:
   m_ObjectHideFlags: 0
