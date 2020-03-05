@@ -24,5 +24,9 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        if (hitInfo.CompareTag("Environment"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

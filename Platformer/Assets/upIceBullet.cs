@@ -17,12 +17,19 @@ public class upIceBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
-        if (enemy != null)
+        if (hitInfo.CompareTag("Enemy"))
         {
-            enemy.TakeDamage(damage);
-            enemy.slow(slowAmount, slowTime);
+            EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                enemy.slow(slowAmount, slowTime);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        if (hitInfo.CompareTag("Environment"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

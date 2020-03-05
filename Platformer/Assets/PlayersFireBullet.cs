@@ -17,12 +17,20 @@ public class PlayersFireBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
-        if (enemy != null)
+        if (hitInfo.CompareTag("Enemy"))
         {
-            enemy.TakeDamage(damage);
-            enemy.DamageOverTime(damageDealtOverTime, damageTime);
+            EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                enemy.DamageOverTime(damageDealtOverTime, damageTime);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        if (hitInfo.CompareTag("Environment"))
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

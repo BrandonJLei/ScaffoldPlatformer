@@ -17,22 +17,30 @@ public class IceBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        EnemyHealth enemyHealth = hitInfo.GetComponent<EnemyHealth>();
-        Patrol enemySpeed = hitInfo.GetComponent<Patrol>();
-        PatrolReact enemyReactSpeed = hitInfo.GetComponent<PatrolReact>();
-        if (enemyHealth != null)
+        if (hitInfo.CompareTag("Enemy"))
         {
-            enemyHealth.TakeDamage(damage);
-            
+            EnemyHealth enemyHealth = hitInfo.GetComponent<EnemyHealth>();
+            Patrol enemySpeed = hitInfo.GetComponent<Patrol>();
+            PatrolReact enemyReactSpeed = hitInfo.GetComponent<PatrolReact>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+
+            }
+            if (enemySpeed != null)
+            {
+                enemySpeed.slow(slowAmount, slowTime);
+            }
+            if (enemyReactSpeed != null)
+            {
+                enemyReactSpeed.slow(slowAmount, slowTime);
+            }
+            Destroy(gameObject);
         }
-        if (enemySpeed != null)
+        if (hitInfo.CompareTag("Environment"))
         {
-            enemySpeed.slow(slowAmount, slowTime);
+            Destroy(gameObject);
         }
-        if (enemyReactSpeed != null)
-        {
-            enemyReactSpeed.slow(slowAmount, slowTime);
-        }
-        Destroy(gameObject);
+        
     }
 }
