@@ -33,8 +33,12 @@ public class FireBullet : MonoBehaviour
             {
                 player.TakeDamage(damage);
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        if (hitInfo.CompareTag("Environment"))
+        {
+            Destroy(gameObject);
+        }
 
     }
 }
