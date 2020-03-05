@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   damage: 2
-  damageDealtOverTime: 1
-  damageTime: 5
-  rb: {fileID: 0}
+  rb: {fileID: 2656908983381453005}
 --- !u!1001 &3654003276627255363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,6 +107,12 @@ PrefabInstance:
 --- !u!1 &2656908983381453004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1615275191259482255, guid: ab7c3a06689a23d4aa7ee7cde60752be,
+    type: 3}
+  m_PrefabInstance: {fileID: 3654003276627255363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &2656908983381453005 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1615275191259482254, guid: ab7c3a06689a23d4aa7ee7cde60752be,
     type: 3}
   m_PrefabInstance: {fileID: 3654003276627255363}
   m_PrefabAsset: {fileID: 0}

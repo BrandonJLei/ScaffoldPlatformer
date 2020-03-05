@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //-////////////////////////////////////////////////////
 ///
@@ -8,7 +9,6 @@ using UnityEngine;
 ///
 public class DeadZone : MonoBehaviour 
 {
-    public GameManager gameManager;
 
     //-////////////////////////////////////////////////////
     ///
@@ -18,8 +18,7 @@ public class DeadZone : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            gameManager.GameOver();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("DeathScene");
         }
-       
     }
 }
