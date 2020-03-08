@@ -5,27 +5,37 @@ using UnityEngine;
 public class FireTrap : MonoBehaviour
 {
 
-    public int damage = 10;
+    [HideInInspector] public Rigidbody2D rigidBody;
+    public float damage = 20.0f;
+    public float damageTick = 1.5f;
+    private float currentTick = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        Debug.Log("currentTick: " + currentTick);
+        if (collision.gameObject.CompareTag("Player") && currentTick <= 0)
         {
-            PlayerHealthCollision player = collision.GetComponent<PlayerHealthCollision>();
+            PlayerHealthCollision player = collision.gameObject.GetComponent<PlayerHealthCollision>();
             if (player != null)
                 player.TakeDamage(damage);
+            currentTick = damageTick;
         }
+        currentTick -= Time.deltaTime;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionExit2D(Collision2D collision)
     {
-        
+        // currentTick = damageTick;
+        Debug.Log("EXITED");
+    }
+
+    void FixedUpdate()
+    {
+        rigidBody.WakeUp();
     }
 }
