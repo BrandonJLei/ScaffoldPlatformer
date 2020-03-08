@@ -6026,7 +6026,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &280183080
 PrefabInstance:
@@ -6247,6 +6247,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1998158667}
+    - target: {fileID: 1532943119428395280, guid: 96e677059a2b34c0eb170f06094e8d19,
+        type: 3}
+      propertyPath: fireWeaponScene
+      value: FireBoss
+      objectReference: {fileID: 0}
     - target: {fileID: 1532943119428395285, guid: 96e677059a2b34c0eb170f06094e8d19,
         type: 3}
       propertyPath: m_RootOrder
@@ -6388,6 +6393,90 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a0f4c92ce91a445a42dd3cd398f9c5, type: 3}
+--- !u!1001 &577122786
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7562519180653711443, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: levelName
+      value: snow level
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711470, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_Name
+      value: portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711470, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562519180653711471, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2a84ae6741aaa143a9ac8abc1aaa514, type: 3}
 --- !u!1001 &600468076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6543,6 +6632,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5780659123549012725, guid: bc2d08227f223624790d837378643c5a,
+        type: 3}
+      propertyPath: m_Name
+      value: FireBossSprite
+      objectReference: {fileID: 0}
     - target: {fileID: 5780659123549012730, guid: bc2d08227f223624790d837378643c5a,
         type: 3}
       propertyPath: health
@@ -6622,6 +6716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780659123581764927, guid: bc2d08227f223624790d837378643c5a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc2d08227f223624790d837378643c5a, type: 3}
@@ -6773,6 +6872,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1023297372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7562519180653711470, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
+    type: 3}
+  m_PrefabInstance: {fileID: 577122786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1032264807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7120,6 +7225,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+--- !u!1 &1626679715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5780659123549012725, guid: bc2d08227f223624790d837378643c5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 848306703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1626679722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626679715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fec74e7a92002f41806f9e93f53b871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireBossPortal: {fileID: 1023297372}
+  fireBoss: {fileID: 1626679715}
 --- !u!1 &1857665529
 GameObject:
   m_ObjectHideFlags: 0
@@ -7283,7 +7408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1998158667 stripped
 MonoBehaviour:

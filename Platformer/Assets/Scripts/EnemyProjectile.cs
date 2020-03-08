@@ -7,8 +7,6 @@ public class EnemyProjectile : MonoBehaviour
 
     public float speed = 20f;
     public int damage = 20;
-    public int damageDealtOverTime = 10;
-    public int damageTime = 5;
     public Rigidbody2D rb;
 
     private Transform player;
@@ -36,7 +34,6 @@ public class EnemyProjectile : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(damage);
-                //player.DamageOverTime(damageDealtOverTime, damageTime);
             }
             Destroy(gameObject);
 
