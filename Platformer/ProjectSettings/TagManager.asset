@@ -8,6 +8,7 @@ TagManager:
   - HitBox
   - Enemy
   - Environment
+  - Trap
   layers:
   - Default
   - TransparentFX
