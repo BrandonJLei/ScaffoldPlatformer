@@ -45,7 +45,7 @@ public class CharacterController2D : MonoBehaviour
     private bool m_Grounded;
     private bool m_FacingRight = true;
     private bool m_Damaged;
-    public bool m_Immune { get; private set; }
+    public bool m_Immune = false;
     private int m_AirJumpsLeft;
     private Vector3 m_Velocity = Vector3.zero;
 
@@ -62,7 +62,7 @@ public class CharacterController2D : MonoBehaviour
         {
             hasFire = true;
         }
-        if(sceneName == iceWeaponScene)
+        if (sceneName == iceWeaponScene)
         {
             hasIce = true;
         }
