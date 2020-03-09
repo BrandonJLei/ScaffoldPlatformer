@@ -45,6 +45,7 @@ public class PlayerHealthCollision : MonoBehaviour
             if(currentHealth <= 0)      //If health goes to 0 or below, call GameOver in GameManager
             {
                 //gameManager.GameOver();
+                PlayerPrefs.SetString("currentScene", SceneManager.GetActiveScene().name);
                 SceneManager.LoadScene("DeathScene");
                 Destroy(gameObject);
             }
