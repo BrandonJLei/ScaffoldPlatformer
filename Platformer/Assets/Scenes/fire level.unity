@@ -430,7 +430,7 @@ RectTransform:
   m_Children:
   - {fileID: 1211729642}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13896,6 +13896,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915370354952389918, guid: e4c28ae3b3caa6f4f93c1058ede7d6ba,
+        type: 3}
+      propertyPath: m_FallGravity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915370354952389919, guid: e4c28ae3b3caa6f4f93c1058ede7d6ba,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4c28ae3b3caa6f4f93c1058ede7d6ba, type: 3}

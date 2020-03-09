@@ -360,6 +360,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2915370354952389918, guid: e4c28ae3b3caa6f4f93c1058ede7d6ba,
+        type: 3}
+      propertyPath: m_FallGravity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915370354952389919, guid: e4c28ae3b3caa6f4f93c1058ede7d6ba,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4c28ae3b3caa6f4f93c1058ede7d6ba, type: 3}
 --- !u!4 &300842885 stripped
@@ -1402,7 +1412,7 @@ PrefabInstance:
     - target: {fileID: 224608292082606182, guid: 0c60fa36e5c69e64689817e4feb2f021,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.79997253
+      value: 0.7999878
       objectReference: {fileID: 0}
     - target: {fileID: 224608292082606182, guid: 0c60fa36e5c69e64689817e4feb2f021,
         type: 3}
