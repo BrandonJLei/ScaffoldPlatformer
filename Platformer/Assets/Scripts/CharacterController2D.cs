@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Events;
 //-////////////////////////////////////////////////////
 ///
 /// CharacterController2D handles the core logic of the player's:
@@ -52,6 +52,9 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
     //private Animator animator; //If using animations
 
+    [Header("Events")]
+    [Space]
+    public UnityEvent OnLandEvent;
 
     void Start()
     {
@@ -72,6 +75,8 @@ public class CharacterController2D : MonoBehaviour
     void Awake()
     {
         m_RigidBody2D = GetComponent<Rigidbody2D>();
+        if (OnLandEvent == null)
+            OnLandEvent = new UnityEvent();
         //animator = GetComponent<Animator>(); //get animator component
     }
 
@@ -81,7 +86,11 @@ public class CharacterController2D : MonoBehaviour
     {
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
         if (m_Grounded)
+        {
             m_AirJumpsLeft = m_AirJumps;
+            OnLandEvent.Invoke();
+        }
+            
     }
 
     //-////////////////////////////////////////////////////
