@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FireBoss.unity
     guid: c675b8d46e3caf1498a7eff3b46f8ca0
   - enabled: 1
-    path: Assets/Scenes/snow level.unity
+    path: Assets/Scenes/Long SnowScene.unity
     guid: 757049cd3893940c4aae390fe2d9710c
   - enabled: 1
     path: Assets/Scenes/ControlScene.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathScene.unity
     guid: 7e1c7d553352d87409e6ab68cc13866e
+  - enabled: 1
+    path: Assets/Scenes/SnowScene.unity
+    guid: 9f1346ea69b27456fb54420f582feab5
   m_configObjects: {}
