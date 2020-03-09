@@ -1,39 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class FireMinionRespawn : MonoBehaviour
 {
     SpriteRenderer m_SpriteRenderer;
 
     public int health = 100;
     public float moveSpeed;
     public bool respawnOn = false;
-    public float respawnTime = 5.0f;
     private bool onFire = false;
     private bool slowed = false;
-    private int startHealth;
 
 
     void Start()
     {
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        startHealth = health;
     }
 
 
     public void TakeDamage(int damage)
     {
         health -= damage;
+        Debug.Log("Took damage.");
         if (health <= 0)
         {
+            Debug.Log("It dieded.");
             Die();
         }
     }
 
     public void DamageOverTime(int damage, int damageDuration)
     {
-        if(onFire == false && slowed == false)
+        if (onFire == false && slowed == false)
         {
             onFire = true;
             StartCoroutine(DamageOverTimeCoroutine(damage, damageDuration));
@@ -47,21 +45,21 @@ public class EnemyHealth : MonoBehaviour
             slowed = true;
             StartCoroutine(SlowCoroutine(slowAmount, slowDuration));
         }
-            
+
     }
 
     IEnumerator DamageOverTimeCoroutine(int damageAmount, int duration)
     {
-        
+
         int amountDamaged = 0;
         int damagePerLoop = damageAmount / duration;
-        while(amountDamaged < damageAmount)
+        while (amountDamaged < damageAmount)
         {
             m_SpriteRenderer.color = Color.red;
             health -= damagePerLoop;
             amountDamaged += damagePerLoop;
             yield return new WaitForSeconds(.5f);
-            m_SpriteRenderer.color = Color.white;   
+            m_SpriteRenderer.color = Color.white;
             yield return new WaitForSeconds(.5f);
         }
         onFire = false;
@@ -73,7 +71,7 @@ public class EnemyHealth : MonoBehaviour
         if (moveSpeed > slowAmount)
             moveSpeed -= slowAmount;
         int timeSlowed = 0;
-        while(timeSlowed < slowTime)
+        while (timeSlowed < slowTime)
         {
             m_SpriteRenderer.color = frozenColor;
             timeSlowed += 1;
@@ -87,21 +85,19 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         //Instantiate(deathEffect, transform.position, Quaternion.identity);
-        if (respawnOn)
-        {
-            gameObject.SetActive(false);
-            health = startHealth;
-            Invoke("Respawn", respawnTime);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        
-    }
-
-    void Respawn()
-    {
+        Debug.Log("Dead.");
+        gameObject.SetActive(false);
+        waitSeconds();
+        Debug.Log("Alive.");
         gameObject.SetActive(true);
     }
+
+    IEnumerator waitSeconds()
+    {
+        Debug.Log("Hello");
+        yield return new WaitForSeconds(5);
+    }
+
+
 }
+
