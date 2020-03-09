@@ -520,7 +520,7 @@ PrefabInstance:
     - target: {fileID: 224608292082606182, guid: 0c60fa36e5c69e64689817e4feb2f021,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.7999878
+      value: 0.79997253
       objectReference: {fileID: 0}
     - target: {fileID: 224608292082606182, guid: 0c60fa36e5c69e64689817e4feb2f021,
         type: 3}
@@ -2401,7 +2401,7 @@ PrefabInstance:
     - target: {fileID: 7562519180653711443, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
         type: 3}
       propertyPath: levelName
-      value: EndScene
+      value: Long snowScene
       objectReference: {fileID: 0}
     - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
         type: 3}
