@@ -17,8 +17,8 @@ public class CharacterController2D : MonoBehaviour
     public int whichWeapon = 1;
     public Transform firePoint;
     public Transform UpFirePoint;
-    public string fireWeaponScene;
     public string iceWeaponScene;
+    public string fireWeaponScene;
     public bool hasFire = false;
     public bool hasIce = false;
     SpriteRenderer m_SpriteRenderer;
@@ -112,12 +112,13 @@ public class CharacterController2D : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && hasFire)
         {
-            m_SpriteRenderer.color = Color.red;
+            m_SpriteRenderer.color = Color.blue;
             whichWeapon = 2;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && hasIce)
         {
-            m_SpriteRenderer.color = Color.blue;
+            
+            m_SpriteRenderer.color = Color.red;
             whichWeapon = 3;
         }
 
@@ -221,18 +222,18 @@ public class CharacterController2D : MonoBehaviour
         if (whichWeapon == 1)
             Instantiate(basicBullet, firePoint.position, firePoint.rotation);
         else if (whichWeapon == 2)
-            Instantiate(fireBullet, firePoint.position, firePoint.rotation);
-        else
             Instantiate(iceBullet, firePoint.position, firePoint.rotation);
+        else
+            Instantiate(fireBullet, firePoint.position, firePoint.rotation);
     }
     void ShootUp()
     {
         if (whichWeapon == 1)
             Instantiate(upBasicBullet, UpFirePoint.position, UpFirePoint.rotation);
         else if (whichWeapon == 2)
-            Instantiate(upFireBullet, UpFirePoint.position, UpFirePoint.rotation);
-        else
             Instantiate(upIceBullet, UpFirePoint.position, UpFirePoint.rotation);
+        else
+            Instantiate(upFireBullet, UpFirePoint.position, UpFirePoint.rotation);
     }
     public void changeWeapon()
     {

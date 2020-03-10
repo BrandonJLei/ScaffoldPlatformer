@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1532943119428395276, guid: 96e677059a2b34c0eb170f06094e8d19,
         type: 3}
       propertyPath: m_Name
-      value: CollisionPlayerThatCanShoot
+      value: AnimatedCollisionPlayerThatCanShoot
       objectReference: {fileID: 0}
     - target: {fileID: 1532943119428395277, guid: 96e677059a2b34c0eb170f06094e8d19,
         type: 3}
@@ -46,6 +46,16 @@ PrefabInstance:
         type: 3}
       propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532943119428395280, guid: 96e677059a2b34c0eb170f06094e8d19,
+        type: 3}
+      propertyPath: fireWeaponScene
+      value: fire level
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532943119428395280, guid: 96e677059a2b34c0eb170f06094e8d19,
+        type: 3}
+      propertyPath: iceWeaponScene
+      value: SnowScene
       objectReference: {fileID: 0}
     - target: {fileID: 1532943119428395283, guid: 96e677059a2b34c0eb170f06094e8d19,
         type: 3}
