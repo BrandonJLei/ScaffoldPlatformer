@@ -39,7 +39,10 @@ public class IceTrap : MonoBehaviour
             {
                 PlayerHealthCollision player = collision.gameObject.GetComponent<PlayerHealthCollision>();
                 if (player != null)
+                {
                     player.TakeDamage(damage);
+                    isActive = false;
+                }
             }
     }
 
