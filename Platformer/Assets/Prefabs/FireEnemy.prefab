@@ -273,6 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   moveSpeed: 0
+  respawnOn: 0
+  respawnTime: 5
+  healthBar: {fileID: 0}
 --- !u!114 &5780659123549012731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +292,7 @@ MonoBehaviour:
   projectile: {fileID: 1615275191259482255, guid: ab7c3a06689a23d4aa7ee7cde60752be,
     type: 3}
   enemyFirePoint: {fileID: 5780659122618305185}
+  playerRangeMultiplier: 0.75
 --- !u!114 &5780659123549012724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +308,7 @@ MonoBehaviour:
   moveSpeed: 1
   followMoveSpeed: 2
   range: 4
-  verticalRange: 1
+  verticalRange: 0.4
   verticalChange: 0.005
   patrolLocations:
   - {fileID: 5780659122843552315}
