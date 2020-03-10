@@ -18,7 +18,9 @@ public class CharacterController2D : MonoBehaviour
     public Transform firePoint;
     public Transform UpFirePoint;
     public string iceWeaponScene;
+    public string iceWeaponScene2;
     public string fireWeaponScene;
+    public string fireWeaponScene2;
     public bool hasFire = false;
     public bool hasIce = false;
     SpriteRenderer m_SpriteRenderer;
@@ -61,11 +63,12 @@ public class CharacterController2D : MonoBehaviour
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        if (sceneName == fireWeaponScene)
+        if (sceneName == fireWeaponScene || sceneName == fireWeaponScene2)
         {
             hasFire = true;
+            hasIce = true;
         }
-        if (sceneName == iceWeaponScene)
+        if (sceneName == iceWeaponScene || sceneName == iceWeaponScene2)
         {
             hasIce = true;
         }
