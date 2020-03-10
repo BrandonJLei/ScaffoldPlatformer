@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 ///
 /// Used to define areas in which the player instantly dies and triggers Game Over sequence
 ///
-public class DeadZone : MonoBehaviour 
+public class DeadZone : MonoBehaviour
 {
 
     //-////////////////////////////////////////////////////
@@ -18,7 +18,11 @@ public class DeadZone : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("DeathScene");
+            PlayerHealthCollision player = collision.GetComponent<PlayerHealthCollision>();
+            if (player != null)
+            {
+                player.TakeDamage(1000000);
+            }
         }
     }
 }
