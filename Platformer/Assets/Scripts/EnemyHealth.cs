@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public float moveSpeed;
     public bool respawnOn = false;
     public float respawnTime = 5.0f;
+    public Image healthBar;
     private bool onFire = false;
     private bool slowed = false;
     private int startHealth;
@@ -19,12 +21,26 @@ public class EnemyHealth : MonoBehaviour
     {
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         startHealth = health;
+        if (healthBar != null)
+        {
+            float healthPercent = (float)health / startHealth;
+            Debug.Log(healthPercent);
+            healthBar.fillAmount = healthPercent;
+        }
     }
 
 
     public void TakeDamage(int damage)
     {
         health -= damage;
+        if (healthBar != null)
+        {
+            Debug.Log(health);
+            Debug.Log(startHealth);
+            float healthPercent = (float)health / startHealth;
+            Debug.Log(healthPercent);
+            healthBar.fillAmount = healthPercent;
+        }
         if (health <= 0)
         {
             Die();
@@ -60,6 +76,12 @@ public class EnemyHealth : MonoBehaviour
             m_SpriteRenderer.color = Color.red;
             health -= damagePerLoop;
             amountDamaged += damagePerLoop;
+            if (healthBar != null)
+            {
+                float healthPercent = (float)health / startHealth;
+                Debug.Log(healthPercent);
+                healthBar.fillAmount = healthPercent;
+            }
             yield return new WaitForSeconds(.5f);
             m_SpriteRenderer.color = Color.white;   
             yield return new WaitForSeconds(.5f);
