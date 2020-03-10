@@ -135,5 +135,5 @@ MonoBehaviour:
   speed: 20
   damage: 5
   slowTime: 3
-  slowAmount: 2
+  slowAmount: 3
   rb: {fileID: -3706248535010657447}
