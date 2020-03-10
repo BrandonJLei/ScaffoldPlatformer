@@ -365,6 +365,16 @@ PrefabInstance:
       propertyPath: m_FallGravity
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2915370354952389918, guid: e4c28ae3b3caa6f4f93c1058ede7d6ba,
+        type: 3}
+      propertyPath: fireWeaponScene
+      value: fire level
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915370354952389918, guid: e4c28ae3b3caa6f4f93c1058ede7d6ba,
+        type: 3}
+      propertyPath: iceWeaponScene
+      value: SnowScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2915370354952389919, guid: e4c28ae3b3caa6f4f93c1058ede7d6ba,
         type: 3}
       propertyPath: m_GravityScale

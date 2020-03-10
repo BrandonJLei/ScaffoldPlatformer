@@ -6307,7 +6307,7 @@ PrefabInstance:
     - target: {fileID: 7562519180653711443, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
         type: 3}
       propertyPath: levelName
-      value: snow level
+      value: EndScene
       objectReference: {fileID: 0}
     - target: {fileID: 7562519180653711468, guid: e2a84ae6741aaa143a9ac8abc1aaa514,
         type: 3}
