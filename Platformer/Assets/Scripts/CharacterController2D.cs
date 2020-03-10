@@ -110,12 +110,12 @@ public class CharacterController2D : MonoBehaviour
             m_SpriteRenderer.color = Color.white;
             whichWeapon = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && hasFire)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && hasIce)
         {
             m_SpriteRenderer.color = Color.blue;
             whichWeapon = 2;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && hasIce)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && hasFire)
         {
             
             m_SpriteRenderer.color = Color.red;
