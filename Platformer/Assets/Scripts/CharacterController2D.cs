@@ -117,22 +117,47 @@ public class CharacterController2D : MonoBehaviour
         {
             ShootUp();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.I))
         {
+            if(hasFire)
+            {
+                if (whichWeapon == 1)
+                    whichWeapon = 3;
+                else
+                    whichWeapon--;
+            }
+            else if(hasIce)
+            {
+                if (whichWeapon == 1)
+                    whichWeapon = 2;
+                else
+                    whichWeapon--;
+            }   
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (hasFire)
+            {
+                if (whichWeapon == 3)
+                    whichWeapon = 1;
+                else
+                    whichWeapon++;
+            }
+            else if (hasIce)
+            {
+                if (whichWeapon == 2)
+                    whichWeapon = 1;
+                else
+                    whichWeapon++;
+            }
+        }
+
+        if (whichWeapon == 1)
             m_SpriteRenderer.color = Color.white;
-            whichWeapon = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && hasIce)
-        {
+        if (whichWeapon == 2)
             m_SpriteRenderer.color = Color.blue;
-            whichWeapon = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && hasFire)
-        {
-            
+        if (whichWeapon == 3)
             m_SpriteRenderer.color = Color.red;
-            whichWeapon = 3;
-        }
 
     }
 
