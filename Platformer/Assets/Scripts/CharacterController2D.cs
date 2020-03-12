@@ -109,11 +109,11 @@ public class CharacterController2D : MonoBehaviour
     ///
     public void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             Shoot();
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButton("Fire2"))
         {
             ShootUp();
         }
@@ -251,12 +251,22 @@ public class CharacterController2D : MonoBehaviour
     }
     void ShootUp()
     {
-        if (whichWeapon == 1)
+        if (whichWeapon == 1 && Time.time > basicNextFire)
+        {
+            basicNextFire = Time.time + basicFireRate;
             Instantiate(upBasicBullet, UpFirePoint.position, UpFirePoint.rotation);
-        else if (whichWeapon == 2)
+        }
+        else if (whichWeapon == 2 && Time.time > iceNextFire)
+        {
+            iceNextFire = Time.time + iceFireRate;
             Instantiate(upIceBullet, UpFirePoint.position, UpFirePoint.rotation);
-        else
+        }
+        else if (whichWeapon == 3 && Time.time > fireNextFire)
+        {
+            fireNextFire = Time.time + fireFireRate;
             Instantiate(upFireBullet, UpFirePoint.position, UpFirePoint.rotation);
+        }
+            
     }
     public void changeWeapon()
     {
