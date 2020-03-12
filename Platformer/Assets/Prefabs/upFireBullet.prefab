@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 20
+  damage: 30
   damageDealtOverTime: 20
   damageTime: 5
   rb: {fileID: 6016088290341937007}
