@@ -5,52 +5,35 @@ using UnityEngine;
 public class FireballTrap : MonoBehaviour
 {
     public float damage = 20.0f;
-    public float launchTick = 3.0f;
-    public float launchForce = 500f;
-    private float tick;
-    private bool travelling = false;
+    public float launchForce = 650f;
+    // private bool travelling = false;
     private Vector2 startLocation;
     private Rigidbody2D rb;
 
     void Start()
     {
-        tick = launchTick;
         startLocation = gameObject.transform.position;
         rb = GetComponent<Rigidbody2D>();
+        launchFireball();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (hitInfo.CompareTag("Player"))
         {
-            PlayerHealthCollision player = collision.gameObject.GetComponent<PlayerHealthCollision>();
+            PlayerHealthCollision player = hitInfo.GetComponent<PlayerHealthCollision>();
             if (player != null)
             {
                 player.TakeDamage(damage);
             }
+            Destroy(gameObject);
         }
     }
 
     void FixedUpdate()
     {
-        Debug.Log("TICK: " + tick);
-        if (tick <= 0)
-        {
-            rb.isKinematic = false;
-            launchFireball();
-            travelling = true;
-            tick = launchTick;
-        }
-        else if (travelling && gameObject.transform.position.y <= startLocation.y)
-        {
-            gameObject.transform.position = startLocation;
-            travelling = false;
-            rb.isKinematic = true;
-        }
-        else
-        {
-            tick -= Time.deltaTime;
-        }
+        if (gameObject.transform.position.y < startLocation.y)
+            Destroy(gameObject);
     }
 
     void launchFireball()
