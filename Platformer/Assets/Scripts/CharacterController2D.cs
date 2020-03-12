@@ -24,7 +24,16 @@ public class CharacterController2D : MonoBehaviour
     public bool hasFire = false;
     public bool hasIce = false;
     SpriteRenderer m_SpriteRenderer;
-    //public GameObject bulletPrefab;
+
+    public float basicFireRate = 0.5F;
+    private float basicNextFire = 0.0F;
+
+    public float iceFireRate = 0.5F;
+    private float iceNextFire = 0.0F;
+
+    public float fireFireRate = 0.5F;
+    private float fireNextFire = 0.0F;
+
 
     [SerializeField]
     private float m_JumpForce = 800f;
@@ -222,12 +231,23 @@ public class CharacterController2D : MonoBehaviour
 
     void Shoot()
     {
-        if (whichWeapon == 1)
+        if (whichWeapon == 1 && Time.time > basicNextFire)
+        {
+            basicNextFire = Time.time + basicFireRate;
             Instantiate(basicBullet, firePoint.position, firePoint.rotation);
-        else if (whichWeapon == 2)
+        }
+            
+        else if (whichWeapon == 2 && Time.time > iceNextFire)
+        {
+            iceNextFire = Time.time + iceFireRate;
             Instantiate(iceBullet, firePoint.position, firePoint.rotation);
-        else
+        }   
+        else if(whichWeapon == 3 && Time.time > fireNextFire)
+        {
+            fireNextFire = Time.time + fireFireRate;
             Instantiate(fireBullet, firePoint.position, firePoint.rotation);
+        }
+            
     }
     void ShootUp()
     {
