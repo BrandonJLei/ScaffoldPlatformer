@@ -5289,6 +5289,11 @@ PrefabInstance:
       propertyPath: respawnOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5780659123549012730, guid: bc2d08227f223624790d837378643c5a,
+        type: 3}
+      propertyPath: respawnTime
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5780659123581764926, guid: bc2d08227f223624790d837378643c5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5485,6 +5490,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a0f4c92ce91a445a42dd3cd398f9c5, type: 3}
+--- !u!1 &464523701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5780659123549012725, guid: bc2d08227f223624790d837378643c5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 600468076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &487064782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5778,6 +5789,11 @@ PrefabInstance:
       propertyPath: respawnOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5780659123549012730, guid: bc2d08227f223624790d837378643c5a,
+        type: 3}
+      propertyPath: respawnTime
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5780659123581764926, guid: bc2d08227f223624790d837378643c5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6029,6 +6045,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224608292082606182, guid: 0c60fa36e5c69e64689817e4feb2f021,
     type: 3}
   m_PrefabInstance: {fileID: 628347969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &826199481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5780659123549012725, guid: bc2d08227f223624790d837378643c5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 108313818}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &848306703
 PrefabInstance:
@@ -6645,6 +6667,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1224317403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1224317405}
+  - component: {fileID: 1224317404}
+  m_Layer: 0
+  m_Name: FireMinionFirstSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1224317404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224317403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0338d47f5eb451e41b7cb5b9301dd818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy1: {fileID: 464523701}
+  enemy2: {fileID: 826199481}
+--- !u!4 &1224317405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224317403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 10.99, z: -4.3242188}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1318713459
 GameObject:
   m_ObjectHideFlags: 0
