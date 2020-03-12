@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: fireWeaponScene2
       value: FireBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 1532943119428395280, guid: 96e677059a2b34c0eb170f06094e8d19,
+        type: 3}
+      propertyPath: basicFireRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532943119428395280, guid: 96e677059a2b34c0eb170f06094e8d19,
+        type: 3}
+      propertyPath: iceFireRate
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1532943119428395283, guid: 96e677059a2b34c0eb170f06094e8d19,
         type: 3}
       propertyPath: animator
