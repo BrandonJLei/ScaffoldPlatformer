@@ -8,6 +8,7 @@ public class IceBullet : MonoBehaviour
     public int damage = 5;
     public int slowTime = 2;
     public int slowAmount = 1;
+    public int patrolSlowAmount = 1;
     public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class IceBullet : MonoBehaviour
             }
             if (enemyReactSpeed != null)
             {
-                enemyReactSpeed.slow(slowAmount, slowTime);
+                enemyReactSpeed.slow(patrolSlowAmount, slowTime);
             }
             Destroy(gameObject);
         }
